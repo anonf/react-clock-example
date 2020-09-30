@@ -1,0 +1,97 @@
+.rolodex-parent {
+    position: relative;
+    width: 120px;
+    float: left;
+    padding-right: 4px;
+}
+
+.rolodex-item {
+    background-color: black;
+    color: white;
+    width: 120px;
+    height: 100px;
+    font-size: 84px;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.rolodex-item.top {
+    position: relative;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.rolodex-item.bottom {
+    position: relative;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.rolodex-item.top .number {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.rolodex-item.bottom .number {
+    position: absolute;
+    color: #ffffff;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.flip-up {
+    animation: 400ms ease-in-out flip-up-anim;
+}
+
+
+.flip-back {
+    animation: 400ms ease-in-out flip-back-anim;
+}
+
+.rolodex-item.bottom.underneath {
+    position: absolute;
+    top: 102px;
+}
+
+.rolodex-item.top.underneath {
+    position: absolute;
+    top: 0;
+}
+
+@keyframes flip-up-anim {
+    from {
+        backface-visibility: hidden;
+        transform-origin: 50% 0;
+        transform: perspective(400px) rotateX(0);
+    }
+    to {
+        backface-visibility: hidden;
+        transform-origin: 50% 0;
+        transform: perspective(400px) rotateX(180deg);
+    }
+}
+
+@keyframes flip-back-anim {
+    from {
+        backface-visibility: hidden;
+        transform-origin: 50% calc(100% + 2px);
+        transform: perspective(400px) rotateX(-180deg);
+    }
+    to {
+        backface-visibility: hidden;
+        transform-origin: 50% calc(100% + 2px);
+        transform: perspective(400px) rotateX(0deg);
+    }
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
